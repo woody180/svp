@@ -1,0 +1,12 @@
+@import './resets';
+@import './variables';
+@import './responsive';
+@import './users';
+@import './loadAnimation';
+@import './style';
+
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
