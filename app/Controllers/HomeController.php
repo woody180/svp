@@ -11,9 +11,9 @@ class HomeController {
         
         $categoryModel->loadCategory('სმენის');
         
-        
         $res->render('welcome', [
-            'latest' => $articlesModel->latestArticles()
+            'latest' => $articlesModel->random(),
+            'articles' => $articlesModel->articles(null, 'desc')
         ]);
     }
 }

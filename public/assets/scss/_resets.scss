@@ -39,6 +39,41 @@
 
 
 
+.heading-font {
+    font-family: var(--headingFont);
+}
+
+
+.body-font {
+    font-family: 'BPG Arial';
+}
+
+
+
+.layer-film {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.41);
+    z-index: 1;
+    
+    &.to-top {
+        background: linear-gradient(to top, rgb(0 0 0 / 82%), transparent);
+    }
+    
+    &.to-bottom {
+        background: linear-gradient(to bottom, rgb(0 0 0 / 82%), transparent);
+    }
+}
+
+
+.uk-position-z-index {
+    position: relative;
+    z-index: 5;
+}
+
 
 // Backgrounds
 .uk-background-primary {

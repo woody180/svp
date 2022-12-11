@@ -5,12 +5,12 @@ use App\Engine\Libraries\Router;
 
 $router = Router::getInstance();
 
-$router->get('articles/new',                'ArticlesController@new');
-$router->post('articles',                   'ArticlesController@create');
-$router->get('articles',                    'ArticlesController@index');
-$router->get('articles/(:segment)',         'ArticlesController@show');
-$router->get('articles/(:segment)/edit',    'ArticlesController@edit');
-$router->put('articles/(:segment)',         'ArticlesController@update');
-$router->patch('articles/(:segment)',       'ArticlesController@update');
-$router->delete('articles/(:segment)',      'ArticlesController@delete');
+$router->get('article/new',                'ArticlesController@new');
+$router->post('article',                   'ArticlesController@create');
+$router->get('article',                    'ArticlesController@index');
+$router->get('article/(:segment)',         'ArticlesController@show');
+$router->get('article/(:segment)/edit',    'ArticlesController@edit');
+$router->put('article/(:segment)',         'ArticlesController@update');
+$router->patch('article/(:segment)',       'ArticlesController@update');
+$router->delete('article/(:segment)',      'ArticlesController@delete');
         

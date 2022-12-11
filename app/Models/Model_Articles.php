@@ -28,7 +28,25 @@ class Model_Articles extends RedBean_SimpleModel {
     
     
     
-        public function articles($title = null) {
+    public function random()
+    {
+        $res = R::getAll('SELECT a.id, a.title, a.url, a.description, a.thumbnail, 
+        GROUP_CONCAT(c.id) AS cat_id, 
+        GROUP_CONCAT(c.title) as cat_title, 
+        GROUP_CONCAT(c.url)  as cat_url
+    FROM articles a INNER JOIN articles_categories ac ON a.id = ac.articles_id 
+    INNER JOIN categories c ON ac.categories_id = c.id 
+    GROUP BY a.id, a.title, a.url, a.description, a.thumbnail
+    ORDER BY RAND() limit 20');
+        
+        $data = toJSON($res);
+        return json_decode($data);
+    }
+    
+    
+    
+    public function articles($title = null, $ascDsc = 'DESC')
+    {
         
         $sql = $title ? " WHERE a.title LIKE ? " : " ";
         $argsArray = [];
@@ -50,7 +68,7 @@ class Model_Articles extends RedBean_SimpleModel {
             . "a.title, a.url, a.id "
             . "FROM articles a "
             . "$sql"
-            . "ORDER BY a.id DESC "
+            . "ORDER BY a.id $ascDsc "
             . "limit $limit offset $offset", $argsArray);
 
         $obj = new stdClass();
