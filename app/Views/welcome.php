@@ -56,22 +56,25 @@
         </div>
         
         
-        <div class="uk-grid-medium" uk-grid>
+        <div class="uk-grid" uk-grid>
             
             <div class="uk-width-2-3@m">
                 <div>
                     
-                    <div class="uk-child-width-1-2 uk-grid-match" uk-grid>
+                    <div class="uk-child-width-1-2 uk-grid-match uk-grid-medium" uk-grid>
                         
-                        <?php foreach ($articles->articles as $article): ?>
-                            <div>
-                                <div>
-                                    <?= $article->title ?>
-                                </div>
-                            </div>
+                        <?php foreach ($articles->data as $article): ?>
+                            <?= $this->insert('partials/cardDefault', ['data' => $article]) ?>
                         <?php endforeach; ?>
                         
                     </div>
+                    
+                    
+                    <?php if ($articles->pager): ?>
+                    <div class="uk-flex uk-flex-center uk-margin-large-top">
+                        <?= $articles->pager ?>
+                    </div>
+                    <?php endif; ?>
                     
                 </div>
             </div>

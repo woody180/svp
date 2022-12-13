@@ -45,6 +45,54 @@ class Model_Articles extends RedBean_SimpleModel {
     
     
     
+    public function allArticles()
+    {
+        
+        $totalPages = R::count('articles');
+        $currentPage = $_GET["page"] ?? 1;
+        if ($currentPage < 1 OR $currentPage > $totalPages) $currentPage = 1;
+        $limit = 12;
+        $offset = ($currentPage - 1) * $limit;  
+        $pagingData = pager([
+            'total' => $totalPages,
+            'limit' => $limit,
+            'current' => $currentPage
+        ]);
+        
+        
+        
+        
+        $res = R::getAll("with groups_gr as 
+            (
+                SELECT  a.title, a.id, a.url, a.thumbnail, a.timestamp, a.description,
+                group_concat(c.title) as categories, 
+                group_concat(c.id) as cat_id, 
+                group_concat(c.url) as cat_url 
+                FROM categories c 
+                INNER join articles_categories ac on c.id=ac.categories_id 
+                INNER join articles a  on a.id=ac.articles_id 
+                GROUP BY a.title, a.id, a.url, a.thumbnail, a.timestamp, a.description 
+                ORDER BY a.id ASC 
+            )
+            select a.title, a.id, a.url, a.thumbnail, a.timestamp, a.description, g.categories, g.cat_id, g.cat_url 
+            FROM categories c 
+            INNER join articles_categories ac on c.id=ac.categories_id 
+            INNER join articles a  on a.id=ac.articles_id 
+            INNER JOIN groups_gr g on g.id = a.id 
+            GROUP BY a.title, a.id, a.url, a.thumbnail, a.timestamp, a.description, g.categories, g.cat_id, g.cat_url 
+            ORDER BY a.id DESC 
+            LIMIT $limit OFFSET $offset");
+        
+        
+        $obj = new stdClass();
+        $obj->pager = $totalPages > $limit ? $pagingData : null;
+        $obj->data = json_decode(json_encode($res));
+        
+        return $obj;
+    }
+    
+    
+    
     public function articles($title = null, $ascDsc = 'DESC')
     {
         
@@ -65,7 +113,7 @@ class Model_Articles extends RedBean_SimpleModel {
             'current' => $currentPage
         ]); 
         $pages = R::getAll("SELECT "
-            . "a.title, a.url, a.id "
+            . "a.title, a.url, a.id, a.thumbnail, a.description "
             . "FROM articles a "
             . "$sql"
             . "ORDER BY a.id $ascDsc "

@@ -13,7 +13,7 @@ class HomeController {
         
         $res->render('welcome', [
             'latest' => $articlesModel->random(),
-            'articles' => $articlesModel->articles(null, 'desc')
+            'articles' => $articlesModel->allArticles()
         ]);
     }
 }
