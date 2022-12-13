@@ -19,7 +19,8 @@ export default class UiController extends SketchEngine {
         'bgColor',
         'styles',
         'mobileNav',
-        'responsive'
+        'responsive',
+        'cardCategoreisLink'
     ];
 
 
@@ -42,6 +43,25 @@ export default class UiController extends SketchEngine {
 
 
     functions = {
+        
+        cardCategoreisLink() {
+            document.querySelectorAll('.svp-card-categories .svp-links').forEach(span => {
+                
+                const spanPrev = span.previousElementSibling;
+                spanPrev.innerText.split(',').forEach(category => {
+                    let cat = category.trim();
+                    var catLink = cat.split(' ').join('-');
+                    
+                    span.insertAdjacentHTML('afterbegin', `<div class="uk-inline-flex uk-flex-wrap">
+                        <span uk-icon="icon: tag; ratio: .7" class="uk-margin-small-left"></span> <a href="${this.variables.baseurl}/categories/${catLink}">${cat}</a>
+                    </div>`)
+                })
+                
+                spanPrev.innerHTML = '';
+            })
+        },
+        
+        
         bgImage() {
             
             document.querySelectorAll('[data-bg]').forEach(bg => {

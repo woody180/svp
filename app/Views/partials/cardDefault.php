@@ -6,8 +6,9 @@
             
             <?= img(['src' => $data->thumbnail], true) ?>
             
-            <div class="uk-position-bottom-left uk-padding-small uk-light uk-position-z-index uk-text-xsmall">
-                კატეგორიები: <?= $data->categories ?>
+            <div class="svp-card-categories uk-position-bottom-left uk-padding-small uk-light uk-position-z-index uk-text-xsmall">
+                <span><?= $data->categories ?></span>
+                <div class="svp-links"></div>
             </div>
             
         </div>
