@@ -58,7 +58,7 @@ export default class UiController extends SketchEngine {
                 })
                 
                 spanPrev.innerHTML = '';
-            })
+            });
         },
         
         

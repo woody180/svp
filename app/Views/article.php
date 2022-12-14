@@ -12,7 +12,7 @@
                     
                     
                     <div class="svp-article-body">
-                        <div class="uk-padding-small uk-text-italic uk-background-muted uk-border-rounded">კატეგორიები: <b class="svp-category-links"><?= $categories ?></b></div>
+                        <div class="uk-padding-small uk-text-italic uk-background-muted uk-border-rounded uk-text-small uk-flex">კატეგორიები: <div class="uk-margin-small-left svp-category-links"><?= $categories ?></div></div>
                        
                         <?= $article->body ?>
                     </div>

@@ -31,7 +31,15 @@ class ArticlesController {
         $categories = $article->sharedCategories;
 
         $categoriesStr = '';
-        foreach (json_decode(json_encode($categories)) as $cat) $categoriesStr .= $cat->title . ', ';
+        $arr = json_decode(json_encode($categories), true);
+        $i = 0;
+        
+        foreach ($arr as $cat) {
+            $i++;
+            $title = trim($cat['title']);
+            $categoriesStr .= '<a href="'.baseurl("categories/{$cat['url']}").'">'.$title .= (count($arr) === $i ? '' : ', ') .'</a>';
+        }
+        
 
         return $res->render('article', [
             'article' => $article,
