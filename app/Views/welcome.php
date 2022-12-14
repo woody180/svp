@@ -80,11 +80,7 @@
             </div>
             
             
-            <div class="uk-width-1-3@m">
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, unde, quae et aliquam blanditiis dicta doloribus optio quis tempora ut pariatur reprehenderit placeat. Cumque, ducimus laudantium nulla unde vitae deserunt.</p>
-                </div>
-            </div>
+            <?= $this->insert('partials/sidebar') ?>
             
         </div>
     </div>

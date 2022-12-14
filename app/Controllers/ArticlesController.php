@@ -1,6 +1,6 @@
 <?php namespace App\Controllers;
 
-
+use \R as R;
 
 class ArticlesController {
     
@@ -25,6 +25,12 @@ class ArticlesController {
     // Show view
     public function show($req, $res) {
         $id = $req->getSegment(2);
+
+        $articlesModel = initModel('Articles');
+        
+        return $res->render('article', [
+            'article' => $articlesModel->loadArticle($id)
+        ]);
     }
 
 

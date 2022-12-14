@@ -1,7 +1,7 @@
 <nav uk-navbar class="uk-flex-1">
     <div class="uk-navbar-left">
     <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="#">მთავარი</a></li>
+            <li class="uk-active"><a href="<?= baseUrl() ?>">მთავარი</a></li>
             <li><a href="#">შესავალი</a></li>
             <li>
                 <a href="#">ვექტორები <span uk-navbar-parent-icon></span></a>

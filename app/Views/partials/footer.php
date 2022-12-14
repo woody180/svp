@@ -1,5 +1,11 @@
 
 
+    <footer id="footer">
+        
+    </footer>
+
+
+
     <?= $this->insert('partials/mobileNav') ?>
 
 

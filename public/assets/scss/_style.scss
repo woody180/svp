@@ -3,6 +3,12 @@
         border-top: 1px solid #ededed;
         border-bottom: 1px solid #ededed;
 
+        &.uk-sticky.uk-active {
+            position: fixed !important;
+            top: 0 !important;
+            z-index: 999;
+        }
+
         .uk-container {
             
 
@@ -199,4 +205,19 @@
             }
         }
     }
+}
+
+
+
+
+
+// Article
+.svp-article-body {
+    font-size: 15px;
+    font-family: var(--bodyFont);
+}
+
+
+#svp-main-sidebar {
+    margin-bottom: 130px;
 }
