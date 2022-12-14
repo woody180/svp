@@ -27,9 +27,15 @@ class ArticlesController {
         $id = $req->getSegment(2);
 
         $articlesModel = initModel('Articles');
-        
+        $article = $articlesModel->loadArticle($id);
+        $categories = $article->sharedCategories;
+
+        $categoriesStr = '';
+        foreach (json_decode(json_encode($categories)) as $cat) $categoriesStr .= $cat->title . ', ';
+
         return $res->render('article', [
-            'article' => $articlesModel->loadArticle($id)
+            'article' => $article,
+            'categories' => $categoriesStr
         ]);
     }
 

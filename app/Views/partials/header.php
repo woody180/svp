@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="navigation-section uk-background-default" uk-sticky="offset: 0">
+    <div class="navigation-section uk-background-default" uk-sticky="end: false; offset: 0;">
         <div class="uk-container">
             <div class="uk-flex uk-flex-middle" data-style="align-items: stretch;">
 

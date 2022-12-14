@@ -10,7 +10,10 @@
                 <div class="uk-card uk-card-body uk-border-rounded uk-overflow-hidden uk-background-default">
                     <?= img(['src' => $article->thumbnail, 'class' => 'uk-display-block uk-margin-bottom uk-width-1-1'], true) ?>
                     
+                    
                     <div class="svp-article-body">
+                        <div class="uk-padding-small uk-text-italic uk-background-muted uk-border-rounded">კატეგორიები: <b class="svp-category-links"><?= $categories ?></b></div>
+                       
                         <?= $article->body ?>
                     </div>
                 </div>
