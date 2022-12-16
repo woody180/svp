@@ -20,7 +20,8 @@ export default class UiController extends SketchEngine {
         'styles',
         'mobileNav',
         'responsive',
-        'cardCategoreisLink'
+        'cardCategoreisLink',
+        'navigation'
     ];
 
 
@@ -43,6 +44,14 @@ export default class UiController extends SketchEngine {
 
 
     functions = {
+        
+        
+        navigation() {
+            document.querySelectorAll('.uk-navbar a').forEach(aTag => {
+                aTag.closest('li').classList.remove('uk-active');
+            });
+        },
+        
         
         cardCategoreisLink() {
             document.querySelectorAll('.svp-card-categories .svp-links').forEach(span => {
