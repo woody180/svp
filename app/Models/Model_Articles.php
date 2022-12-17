@@ -28,6 +28,24 @@ class Model_Articles extends RedBean_SimpleModel {
     
     
     
+    public function search(string $title)
+    {
+        $res = R::getAll('SELECT a.id, a.title, a.url, a.description, a.thumbnail, 
+            GROUP_CONCAT(c.id) AS cat_id, 
+            GROUP_CONCAT(c.title) as cat_title, 
+            GROUP_CONCAT(c.url)  as cat_url
+        FROM articles a INNER JOIN articles_categories ac ON a.id = ac.articles_id 
+        INNER JOIN categories c ON ac.categories_id = c.id 
+        WHERE a.title LIKE ? 
+        GROUP BY a.id, a.title, a.url, a.description, a.thumbnail
+        ORDER BY a.id LIMIT 20', ["%{$title}%"]);
+        
+        $data = toJSON($res);
+        return json_decode($data);
+    }
+    
+    
+    
     public function random()
     {
         $res = R::getAll('SELECT a.id, a.title, a.url, a.description, a.thumbnail, 
@@ -127,7 +145,8 @@ class Model_Articles extends RedBean_SimpleModel {
     }
     
     
-    public function latestArticles($limit = 10) {
+    public function latestArticles($limit = 10)
+    {
 
         // R::fancyDebug();
         
@@ -145,7 +164,8 @@ class Model_Articles extends RedBean_SimpleModel {
     }
     
     
-    public function similar() {
+    public function similar()
+    {
         $url = urlSegments('last', true);
         $where = is_numeric($url) ? 'WHERE a.id = ? ' : 'WHERE a.url = ? ';
         

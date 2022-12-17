@@ -221,3 +221,23 @@
 #svp-main-sidebar {
     margin-bottom: 130px;
 }
+
+
+
+
+
+
+// Search results
+.svp-search-result {
+    
+    img {
+        width: 90px;
+        height: 80px;
+    }
+    
+    &:hover {
+        img {
+            opacity: .8;
+        }
+    }
+}

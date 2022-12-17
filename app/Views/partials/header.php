@@ -27,9 +27,9 @@
 
 
                 <div class="uk-flex-1 svp-search">
-                    <form class="uk-search uk-search-default uk-width-1-1">
+                    <form class="uk-search uk-search-default uk-width-1-1" method="GET" action="<?= baseUrl("search") ?>">
                         <span class="uk-search-icon-flip" uk-search-icon></span>
-                        <input class="uk-search-input uk-width-1-1" type="search" placeholder="ძიება" aria-label="Search">
+                        <input class="uk-search-input uk-width-1-1 body-font uk-text-small" type="search" placeholder="ძიება" aria-label="Search" name="title" value="<?= query('title') ?>" />
                     </form>
                 </div>
 
