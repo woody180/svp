@@ -5,6 +5,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="<?= $article->title ?>" />
 <meta property="og:description" content="<?= $this->e(mb_strimwidth($article->description, 0, 155)) ?>" />
+<meta property="og:image" content="<?= assetsUrl("tinyeditor/filemanager/files/".$article->thumbnail) ?>" />
 <?= $this->stop() ?>
 
 <?php $this->start('mainSection') ?>
