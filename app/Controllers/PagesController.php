@@ -1,6 +1,6 @@
 <?php namespace App\Controllers;
 
-
+use \R as R;
 
 class PagesController {
     
@@ -25,6 +25,14 @@ class PagesController {
     // Show view
     public function show($req, $res) {
         $id = $req->getSegment(2);
+        
+        initModel('Pages');
+        
+        $page = R::findOne('page', 'url = ?', [$id]) ?? abort();
+        
+        return $res->render('page', [
+            'page' => $page
+        ]);
     }
 
 

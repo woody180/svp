@@ -29,8 +29,8 @@
                     </ul>
                 </div>
             </li>
-            <li><a href="<?= baseUrl("categories/ვიდეო") ?>">ვიდეო</a></li>
-            <li><a href="<?= baseUrl("categories/სერვისები") ?>">სერვისები</a></li>
+            <!--<li><a href="<?= ''// baseUrl("categories/ვიდეო") ?>">ვიდეო</a></li>-->
+            <li><a href="<?= baseUrl("pages/სერვისები") ?>">სერვისები</a></li>
         </ul>
     </div>
 </nav>

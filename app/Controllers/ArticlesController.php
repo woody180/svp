@@ -43,7 +43,8 @@ class ArticlesController {
 
         return $res->render('article', [
             'article' => $article,
-            'categories' => $categoriesStr
+            'categories' => $categoriesStr,
+            'title' => $article->title
         ]);
     }
 
