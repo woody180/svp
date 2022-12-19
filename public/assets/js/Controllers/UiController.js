@@ -1,4 +1,4 @@
-import SketchEngine from '../sketchEngine/SketchEngine.js';
+import SketchEngine from '../SketchEngine/SketchEngine.js';
 
 
 export default class UiController extends SketchEngine {
