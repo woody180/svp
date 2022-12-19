@@ -2,7 +2,9 @@
 use \R as R;
 
 function initModel(string $modelName) {
-
+    
+    $modelName = ucfirst($modelName);
+    
     if (DATABASE) {
 
         require_once APPROOT . '/Engine/Libraries/rb.php';
