@@ -27,6 +27,12 @@
                         
                         <?= $article->body ?>
                     </div>
+                    
+                    
+                    <div>
+                        <div class="fb-like" data-href="<?= baseUrl(urlSegments(null, true)) ?>" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+                        <div class="fb-comments" data-href="<?= baseUrl(urlSegments(null, true)) ?>" data-width="" data-numposts="5"></div>
+                    </div>
                 </div>
             </div>
             
