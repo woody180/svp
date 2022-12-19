@@ -9,8 +9,6 @@ class HomeController {
         $categoryModel = initModel('categories');
         $articlesModel = initModel('articles');
         
-        $categoryModel->loadCategory('სმენის');
-        
         $res->render('welcome', [
             'latest' => $articlesModel->random(),
             'articles' => $articlesModel->allArticles()
