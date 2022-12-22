@@ -12,12 +12,12 @@
             </div>
             
         </div>
-        <div class="uk-card-body">
+        <div class="uk-card-body" data-responsive="max-width[960]; style[padding: 10px;]">
             
-            <a class="uk-card-title uk-link-reset uk-margin-small-bottom uk-display-block" href="<?= baseUrl("article/{$data->url}") ?>"><?= $data->title ?></a>
+            <a class="uk-card-title uk-link-reset uk-margin-small-bottom uk-display-block" data-responsive="max-width[960]; style[font-size: 11px;]" href="<?= baseUrl("article/{$data->url}") ?>"><?= $data->title ?></a>
             
             <?php if (!empty($data->description)): ?>
-                <p class="uk-margin-remove"><?= strip_tags(mb_strimwidth($data->description, 0, 120, '...')) ?></p>
+                <p class="uk-margin-remove" data-responsive="max-width[960]; style[font-size: 10px;]"><?= strip_tags(mb_strimwidth($data->description, 0, 120, '...')) ?></p>
             <?php endif; ?>
         </div>
     </div>
