@@ -26,6 +26,36 @@
                         <hr class="uk-divider-small">
                         
                         <?= $article->body ?>
+                        
+                        
+                        <div id="svp-similar-articles" class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="autoplay: true; pause-on-hover: false; autoplay-interval: 4000">
+                            
+                            <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-child-width-1-2 uk-grid-medium uk-grid">
+                                <?php foreach ($similars->articles as $similar): ?>
+                                <li>
+                                    <div class="uk-panel uk-border-rounded uk-overflow-hidden">
+                                        
+                                        <a href="<?= baseUrl("article/{$similar->url}") ?>" class="uk-position-absolute uk-position-top-left uk-width-1-1 uk-height-1-1"></a>
+                                        
+                                        <div class="layer-film to-bottom"></div>
+                                        
+                                        <?= img(['src' => $similar->thumbnail], true) ?>
+                                        <div class="uk-position-top-left uk-panel uk-padding-small uk-position-z-index">
+                                            <p><?= $similar->title ?></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <?php endforeach; ?>
+                            </ul>
+
+                            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+                        </div>
+                        
+                        
+                        
+                        
                     </div>
                     
                     

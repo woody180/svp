@@ -40,11 +40,17 @@ class ArticlesController {
             $categoriesStr .= '<a href="'.baseurl("categories/{$cat['url']}").'">'.$title .= (count($arr) === $i ? '' : ', ') .'</a>';
         }
         
+        
+        
+        // Similar articles
+        $similarArticles = $articlesModel->similar();
+        //dd($similarArticles);
 
         return $res->render('article', [
             'article' => $article,
             'categories' => $categoriesStr,
-            'title' => $article->title
+            'title' => $article->title,
+            'similars' => $similarArticles
         ]);
     }
 

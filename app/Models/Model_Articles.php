@@ -178,7 +178,8 @@ class Model_Articles extends RedBean_SimpleModel {
                 . 'ON ac.categories_id = c.id '
                 . $where
                 . 'ORDER BY a.id DESC', [$url])[0];
-        $cateogry = to_object($cateogry);
+        
+        $cateogry = json_decode(json_encode($cateogry));
         $categoryID = $cateogry->cat_id;
         
         //R::fancyDebug();

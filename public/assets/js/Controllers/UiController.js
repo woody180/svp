@@ -57,6 +57,8 @@ export default class UiController extends SketchEngine {
         categoryLinks() {
             document.querySelectorAll('.svp-category-links').forEach(catLink => {
                 
+                if (!catLink.getAttribute('data-category-url')) return false;
+                
                 const urls = catLink.getAttribute('data-category-url').split(',');
                 const titles = catLink.innerText.split(',');
                 let tags = '';
