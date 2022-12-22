@@ -30,7 +30,7 @@
                         </div>
                         
                         <div class="uk-card-body uk-padding-small uk-text-small uk-text-center">
-                            <p class="uk-margin-remove body-font"><?= mb_strimwidth($la->description, 0, 100, '...') ?></p>
+                            <p class="uk-margin-remove body-font" data-responsive="max-width[960]; style[font-size: 10px]"><?= mb_strimwidth($la->description, 0, 100, '...') ?></p>
                         </div>
                     </div>
                 </li>
