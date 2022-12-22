@@ -33,7 +33,7 @@
                     </form>
                 </div>
 
-                <a uk-toggle href="#svp-mobile-nav-offcanvas" uk-icon="icon: menu;" class="uk-hidden@m"></a>
+                <a uk-toggle href="#svp-mobile-nav-offcanvas" uk-icon="icon: menu;" class="uk-hidden@m uk-flex uk-position-relative" ></a>
 
             </div>
         </div>
