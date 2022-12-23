@@ -1,4 +1,4 @@
-<div id="svp-header">
+<div id="svp-header" class="uk-width-1-1">
 
     <div class="uk-section-xsmall">
         <div class="uk-container">
@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="navigation-section uk-background-default" uk-sticky="end: false; offset: 0;">
+    <div class="navigation-section uk-background-default uk-width-1-1" uk-sticky="end: false; offset: 0;">
         <div class="uk-container">
             <div class="uk-flex uk-flex-middle" data-style="align-items: stretch;">
 
