@@ -15,6 +15,7 @@
 
 
     <?= $this->insert('partials/mobileNav') ?>
+    <?= $this->insert('partials/adminTools') ?>
 
 
     <script src="<?= assetsUrl('js/bootstrapFront.js') ?>" type="module"></script>
