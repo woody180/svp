@@ -15,7 +15,10 @@
 
 
     <?= $this->insert('partials/mobileNav') ?>
+
+    <?php if (checkAuth([1])): ?>
     <?= $this->insert('partials/adminTools') ?>
+    <?php endif; ?>
 
 
     <script src="<?= assetsUrl('js/bootstrapFront.js') ?>" type="module"></script>
