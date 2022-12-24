@@ -4,6 +4,13 @@ use \R as R;
 
 class ArticlesController {
     
+    protected $articlesModel;
+
+    public function __construct() {
+        $this->articlesModel = initModel('articles');
+    }
+    
+    
     // Add new view
     public function new($req, $res) {
         
@@ -18,7 +25,12 @@ class ArticlesController {
 
     // All items
     public function index($req, $res) {
-       
+        
+        $list = $this->articlesModel->allArticles();
+        
+        return $res->render('back/articles/list', [
+            'list' => $list
+        ]);
     }
 
 
@@ -26,8 +38,7 @@ class ArticlesController {
     public function show($req, $res) {
         $id = $req->getSegment(2);
 
-        $articlesModel = initModel('Articles');
-        $article = $articlesModel->loadArticle($id);
+        $article = $this->articlesModel->loadArticle($id);
         $categories = $article->sharedCategories;
 
         $categoriesStr = '';
@@ -43,7 +54,7 @@ class ArticlesController {
         
         
         // Similar articles
-        $similarArticles = $articlesModel->similar();
+        $similarArticles = $this->articlesModel->similar();
         //dd($similarArticles);
 
         return $res->render('article', [
@@ -58,6 +69,8 @@ class ArticlesController {
     // Edit view
     public function edit($req, $res) {
         $id = $req->getSegment(2);
+        
+        dd($id);
     }
 
 
