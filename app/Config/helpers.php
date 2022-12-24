@@ -9,4 +9,4 @@
 */
 
 
-CONST CUSTOM_HELPERS = ['htmlHelper', 'minifier/minifier'];
+CONST CUSTOM_HELPERS = ['htmlHelper', 'minifier/minifier', 'Auth/checkAuth'];
