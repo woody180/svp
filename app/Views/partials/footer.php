@@ -17,7 +17,14 @@
     <?= $this->insert('partials/mobileNav') ?>
 
     <?php if (checkAuth([1])): ?>
-    <?= $this->insert('partials/adminTools') ?>
+        <?= $this->insert('partials/adminTools') ?>
+        
+        <script src="<?= assetsUrl('tinyeditor/filemanager/js/elfinder.min.js') ?>"></script>
+        <script src="<?= assetsUrl('tinyeditor/filemanagerModal.js') ?>"></script>
+        
+        <script src="<?= assetsUrl('js/tinymce/tinymce.min.js') ?>"></script>
+        
+        <script src="<?= assetsUrl('js/bootstrapBack.js') ?>" type="module"></script>
     <?php endif; ?>
 
 
