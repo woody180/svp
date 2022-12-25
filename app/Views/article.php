@@ -25,8 +25,7 @@
                         <h1 class="uk-text-lead"><?= $article->title ?></h1>
                         <hr class="uk-divider-small">
                         
-                        <?= $article->body ?>
-                        
+                        <?= relevantPath($article->body) ?>
                         
                         <div id="svp-similar-articles" class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="autoplay: true; pause-on-hover: false; autoplay-interval: 4000">
                             
