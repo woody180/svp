@@ -1,5 +1,7 @@
 {
     "require": {
-        "scssphp/scssphp": "^1.8"
+        "scssphp/scssphp": "^1.8",
+        "padaliyajay/php-autoprefixer": "^1.4",
+        "cocur/slugify": "^4.3"
     }
 }

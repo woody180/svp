@@ -10,6 +10,15 @@ class ComposerStaticInitbe9a3927d2ffb091b461e4012d3ca89e
         'S' => 
         array (
             'ScssPhp\\ScssPhp\\' => 16,
+            'Sabberworm\\CSS\\' => 15,
+        ),
+        'P' => 
+        array (
+            'Padaliyajay\\PHPAutoprefixer\\' => 28,
+        ),
+        'C' => 
+        array (
+            'Cocur\\Slugify\\' => 14,
         ),
     );
 
@@ -17,6 +26,18 @@ class ComposerStaticInitbe9a3927d2ffb091b461e4012d3ca89e
         'ScssPhp\\ScssPhp\\' => 
         array (
             0 => __DIR__ . '/..' . '/scssphp/scssphp/src',
+        ),
+        'Sabberworm\\CSS\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
+        ),
+        'Padaliyajay\\PHPAutoprefixer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/padaliyajay/php-autoprefixer/src',
+        ),
+        'Cocur\\Slugify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cocur/slugify/src',
         ),
     );
 
