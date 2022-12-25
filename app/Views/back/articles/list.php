@@ -28,7 +28,11 @@
                     
                     <div class="svp-action-buttons uk-flex uk-flex-middle">
                         <a class="uk-display-block uk-margin-small-right" href="<?= baseUrl("article/{$article->id}/edit") ?>" uk-icon="icon: pencil"></a>
-                        <a class="uk-display-block" href="#" uk-icon="icon: trash"></a>
+                        
+                        <form method="POST" action="<?= baseUrl("article/{$article->id}") ?>">
+                            <?= setMethod('delete') ?>
+                            <button type="submit" class="uk-display-block" href="#" uk-icon="icon: trash" onclick="return confirm('დარწმუნებული ხარ?')"></button>
+                        </form>
                     </div>
                 </div>
             </li>
