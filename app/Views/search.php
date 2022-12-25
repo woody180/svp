@@ -2,7 +2,7 @@
 
 <?php $this->start('mainSection') ?>
 <section class="uk-section">
-    <div class="uk-container">
+    <div class="uk-container min-height">
 
         <ul class="uk-list uk-list-striped">
             <?php foreach ($results as $result): ?>
