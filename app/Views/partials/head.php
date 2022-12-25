@@ -11,6 +11,16 @@
 
     <link rel="stylesheet" href="<?= assetsUrl('css/uikit.min.css') ?>">
     <link rel="stylesheet" href="<?= assetsUrl('css/main.min.css') ?>">
+    
+    <?php if (checkAuth([1])): ?>
+        <link rel="stylesheet" href="<?= assetsUrl('tinyeditor/plugins/jqueryui/css/jquery-ui.css') ?>">
+        <link rel="stylesheet" href="<?= assetsUrl('tinyeditor/filemanager/filemanager.css') ?>">
+        <link rel="stylesheet" href="<?= assetsUrl('tinyeditor/filemanager/css/elfinder.min.css') ?>">
+        <link rel="stylesheet" href="<?= assetsUrl('tinyeditor/filemanager/css/theme.css') ?>">
+        
+        <script src="<?= assetsUrl('tinyeditor/plugins/jqueryui/js/jquery-3.6.0.min.js') ?>"></script>
+        <script src="<?= assetsUrl('tinyeditor/plugins/jqueryui/js/jquery-ui.js') ?>"></script>
+    <?php endif; ?>
 
     <script src="<?= assetsUrl('js/uikit.min.js') ?>"></script>
     <script src="<?= assetsUrl('js/uikit-icons.min.js') ?>"></script>
