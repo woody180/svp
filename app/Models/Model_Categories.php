@@ -82,6 +82,7 @@ limit $limit offset $offset", $argsArray);
     
     public function categoryList()
     {
-        
+        $data = R::getAll('SELECT id, title FROM categories ORDER BY id DESC');
+        return json_decode(json_encode($data));
     }
 }
