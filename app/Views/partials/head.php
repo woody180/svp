@@ -17,9 +17,11 @@
         <link rel="stylesheet" href="<?= assetsUrl('tinyeditor/filemanager/filemanager.css') ?>">
         <link rel="stylesheet" href="<?= assetsUrl('tinyeditor/filemanager/css/elfinder.min.css') ?>">
         <link rel="stylesheet" href="<?= assetsUrl('tinyeditor/filemanager/css/theme.css') ?>">
+        <link rel="stylesheet" href="<?= assetsUrl('css/chosen.min.css') ?>">
         
         <script src="<?= assetsUrl('tinyeditor/plugins/jqueryui/js/jquery-3.6.0.min.js') ?>"></script>
         <script src="<?= assetsUrl('tinyeditor/plugins/jqueryui/js/jquery-ui.js') ?>"></script>
+        <script src="<?= assetsUrl('js/chosen.jquery.min.js') ?>"></script>
     <?php endif; ?>
 
     <script src="<?= assetsUrl('js/uikit.min.js') ?>"></script>

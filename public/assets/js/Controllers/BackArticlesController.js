@@ -13,7 +13,8 @@ export default class BackArticlesController extends SketchEngine {
 
 
     execute = [
-        'tinymceEditorInit'
+        'tinymceEditorInit',
+        'initChosen'
     ];
 
 
@@ -112,6 +113,11 @@ export default class BackArticlesController extends SketchEngine {
                     }
                 }
             });
+        },
+        
+        
+        initChosen() {
+            $(this.selectors.categorySelect).chosen({disable_search_threshold: 10});
         }
     }
 
