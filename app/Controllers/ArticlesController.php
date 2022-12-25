@@ -117,7 +117,7 @@ class ArticlesController {
         
         // Redirect with message
         setFlashData('success', 'სტატია გამოქვეყნდა წარმატებით');
-        return $res->redirect(baseUrl('articles'));
+        return $res->redirect(baseUrl('article'));
     }
 
 
@@ -288,6 +288,10 @@ class ArticlesController {
     // Delete
     public function delete($req, $res) {
         $id = $req->getSegment(2);
+        
+        R::trash('articles', $id);
+        
+        return $res->redirect(baseUrl("article"));
     }
 
 }
