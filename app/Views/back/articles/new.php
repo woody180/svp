@@ -53,13 +53,27 @@
                 </div>
                 
                 <div>
-                    <label class="js-upload uk-placeholder uk-text-center uk-display-block uk-border-rounded">
-                        <span uk-icon="icon: cloud-upload"></span>
-                        <span class="uk-text-middle heading-font">სტატიის სურათის ატვირთვა</span>
-                        <div uk-form-custom>
-                            <input type="file" name="thumbnail">
+                    <div class="uk-grid-match uk-grid-small" uk-grid>
+                        <div class="uk-flex-1">
+                            <label class="js-upload uk-placeholder uk-text-center uk-border-rounded uk-flex uk-flex-middle uk-flex-center">
+                                <div>
+                                    <span uk-icon="icon: cloud-upload"></span>
+                                    <span class="uk-text-middle heading-font">სტატიის სურათის ატვირთვა</span>
+                                </div>
+                                
+                                <div uk-form-custom>
+                                    <input class="svp-thumbnail-input" type="file" name="thumbnail">
+                                </div>
+                            </label>
                         </div>
-                    </label>
+                        
+                        <div class="uk-width-small">
+                            <div class="uk-position-relative" data-style="border: 1px solid #e3e3e3; border-style: dashed; border-radius: 5px; overflow: hidden; height: 140px">
+                                <a data-style="border-radius: 0; opacity: .8; backdrop-filter: blur(10px); color: black;" href="#" uk-icon="icon: close;" class="svp-remove-thumbnail uk-icon-button uk-position-top-right uk-position-z-index"></a>
+                                <?= img(['src' => 'images/not-found.png', 'class' => 'svp-thumbnail-review uk-display-block uk-object-cover uk-width-1-1']) ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div>
