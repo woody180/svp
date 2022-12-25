@@ -22,7 +22,10 @@ export default class BackArticlesController extends SketchEngine {
 
     selectors = {
         tinyarea: '.tinymce-editalbe-area',
-        categorySelect: '.svp-category-select'
+        categorySelect: '.svp-category-select',
+        thumbPrev: '.svp-thumbnail-review',
+        thumbInput: '.svp-thumbnail-input',
+        removeThumb: '.svp-remove-thumbnail'
     };
 
 
@@ -32,10 +35,40 @@ export default class BackArticlesController extends SketchEngine {
     catchDOM() {}
 
 
-    bindEvents() {}
+    bindEvents() {
+        this.lib('body').on('change', this.functions.previewThumb.bind(this), this.selectors.thumbInput);
+        this.lib(this.selectors.removeThumb).on('click', this.functions.removeThumb.bind(this));
+    }
 
 
     functions = {
+        
+        removeThumb(e) {
+            e.preventDefault();
+            const img = `${this.variables.baseurl}/assets/images/not-found.png`;
+            document.querySelector(this.selectors.thumbPrev).setAttribute('src', img);
+            document.querySelector(this.selectors.thumbInput).value = null;
+        },
+        
+        
+        previewThumb(e) {
+            e.preventDefault();
+            
+            const chooseFile = document.querySelector(this.selectors.thumbInput);
+            const imgPreview = document.querySelector(this.selectors.thumbPrev);
+            const files = chooseFile.files[0];
+            
+            if (files) {
+                const fileReader = new FileReader();
+                fileReader.readAsDataURL(files);
+                fileReader.addEventListener("load", function () {
+                    imgPreview.src = this.result;
+                });    
+            }
+            
+            console.log(e.target.value);
+        },
+        
         
         tinymceEditorInit() {
             
