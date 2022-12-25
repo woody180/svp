@@ -46,8 +46,10 @@ export default class BackArticlesController extends SketchEngine {
         removeThumb(e) {
             e.preventDefault();
             const img = `${this.variables.baseurl}/assets/images/not-found.png`;
+            const hidden = document.querySelector('input[name=thumbnail_hidden]');
             document.querySelector(this.selectors.thumbPrev).setAttribute('src', img);
             document.querySelector(this.selectors.thumbInput).value = null;
+            if (hidden) hidden.value = null;
         },
         
         
