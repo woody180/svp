@@ -24,7 +24,9 @@
                     <div class="svp-article-body">
                         <div class="uk-padding-small uk-text-italic uk-background-muted uk-border-rounded uk-text-small uk-flex uk-flex-between">
                             <div class="uk-margin-small-left svp-category-links">კატეგორიები: <?= $categories ?></div>
+                            <?php if (checkAuth([1])): ?>
                             <a href="<?= baseUrl("article/" . urlSegments('last') . "/edit") ?>" uk-icon="icon: pencil;" class="uk-icon-button"></a>
+                            <?php endif; ?>
                         </div>
                        
                         <h1 class="uk-text-lead"><?= $article->title ?></h1>
