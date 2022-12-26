@@ -16,11 +16,16 @@
             
             <div class="uk-width-2-3@m">
                 <div class="uk-card uk-card-body uk-border-rounded uk-overflow-hidden uk-background-default">
-                    <?= img(['src' => $article->thumbnail, 'class' => 'uk-border-rounded uk-display-block uk-margin-bottom uk-width-1-1'], true) ?>
+                    <?php if ($article->thumbnail): ?>
+                        <?= img(['src' => $article->thumbnail, 'class' => 'uk-border-rounded uk-display-block uk-margin-bottom uk-width-1-1'], true) ?>
+                    <?php endif; ?>
                     
                     
                     <div class="svp-article-body">
-                        <div class="uk-padding-small uk-text-italic uk-background-muted uk-border-rounded uk-text-small uk-flex">კატეგორიები: <div class="uk-margin-small-left svp-category-links"><?= $categories ?></div></div>
+                        <div class="uk-padding-small uk-text-italic uk-background-muted uk-border-rounded uk-text-small uk-flex uk-flex-between">
+                            <div class="uk-margin-small-left svp-category-links">კატეგორიები: <?= $categories ?></div>
+                            <a href="<?= baseUrl("article/" . urlSegments('last') . "/edit") ?>" uk-icon="icon: pencil;" class="uk-icon-button"></a>
+                        </div>
                        
                         <h1 class="uk-text-lead"><?= $article->title ?></h1>
                         <hr class="uk-divider-small">
