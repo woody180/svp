@@ -31,13 +31,21 @@ class Languages {
 
 
     // Translate by language file/s
-    public static function translate(string $path) {
+    public static function translate($path) {
 
         self::construct();
         
-        $pathArr = explode('.', $path);
-
         $lang = isset($_SESSION['lang']) ? strtolower($_SESSION['lang']) : null;
+        
+        if (is_array($path)) {
+            if (isset($path[$lang]))
+                return $path[$lang];
+            else 
+                return null;
+        }
+            
+        
+        $pathArr = explode('.', $path);
 
         $filePath = APPROOT . "/Languages/{$lang}/{$pathArr[0]}.php";
         if (file_exists($filePath))
@@ -70,6 +78,8 @@ class Languages {
 
     // Languages list
     public static function list() {
+        
+        self::construct();
 
         $path = APPROOT . "/Engine/Language_base/languages.json";
 
@@ -81,13 +91,15 @@ class Languages {
 
     // Active languages
     public static function primary() {
+        
+        self::construct();
 
         $languageList = json_decode(file_get_contents(self::$path));
 
         $activeLang = null;
 
         foreach($languageList as $lg) {
-            if ($lg->active === true) {
+            if ($lg->primary === true) {
                 $activeLang = $lg;
                 break;
             }
@@ -97,7 +109,17 @@ class Languages {
     }
 
 
-    public static function active() {
+    public static function active()
+    {
+        self::construct();
+        
+        if (!isset($_SESSION['lang'])) {
+            foreach (self::list() as $lang) {
+                if ($lang->primary) return $lang->code;
+                else dd('No default language code has been found. You must provide default language close through CLI.');
+            }
+        }
+        
         return $_SESSION['lang'];
     }
 }
