@@ -20,9 +20,16 @@
                         </div>
                     </div>
                     
-                    <div>
+                    <?php if ($isAdmin): ?>
+                    <div class="svp-action-buttons uk-flex uk-flex-middle">
+                        <a class="uk-display-block uk-margin-small-right" href="<?= baseUrl("article/{$result->id}/edit") ?>" uk-icon="icon: pencil"></a>
                         
+                        <form method="POST" action="<?= baseUrl("article/{$result->id}") ?>">
+                            <?= setMethod('delete') ?>
+                            <button type="submit" class="uk-display-block" href="#" uk-icon="icon: trash" onclick="return confirm('დარწმუნებული ხარ?')"></button>
+                        </form>
                     </div>
+                    <?php endif; ?>
                 </div>
             </li>
             <?php endforeach; ?>
